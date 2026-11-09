@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// Function declarations (as shown in the lecture)
 void readMarks(int marks[], int n);
 int findTotal(int marks[], int n);
 double findAverage(int marks[], int n);
@@ -17,7 +16,6 @@ int main() {
     char choice;
 
     do {
-        // Ask number of students and validate
         do {
             cout << "Enter number of students (1-100): ";
             cin >> n;
@@ -25,13 +23,10 @@ int main() {
                 cout << "Invalid! Please enter a number between 1 and 100.\n";
         } while (n < 1 || n > 100);
 
-        // Read marks
         readMarks(marks, n);
 
-        // Show full report
         printReport(marks, n);
 
-        // Ask if user wants to run again
         cout << "\nDo you want to analyse another set of marks? (y/n): ";
         cin >> choice;
 
@@ -40,8 +35,6 @@ int main() {
     cout << "\nThank you! Program ended.\n";
     return 0;
 }
-
-// ----------------- Function Definitions -----------------
 
 void readMarks(int marks[], int n) {
     cout << "\nEnter marks of " << n << " students:\n";
@@ -60,7 +53,6 @@ int findTotal(int marks[], int n) {
 }
 
 double findAverage(int marks[], int n) {
-    // Important: cast to double so we get decimal average
     return (double)findTotal(marks, n) / n;
 }
 
@@ -85,7 +77,7 @@ int findLowest(int marks[], int n) {
 int countPassed(int marks[], int n) {
     int passed = 0;
     for (int i = 0; i < n; i++) {
-        if (marks[i] >= 40)          // pass mark = 40
+        if (marks[i] >= 40) 
             passed++;
     }
     return passed;
